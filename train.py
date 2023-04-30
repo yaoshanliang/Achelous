@@ -41,8 +41,8 @@ if __name__ == "__main__":
     parser.add_argument("--nd", type=bool, default=True)
     parser.add_argument("--phi", type=str, default='S0')
     parser.add_argument("--resolution", type=int, default=320)
-    parser.add_argument("--bs", type=int, default=32)
-    parser.add_argument("--epoch", type=int, default=100)
+    parser.add_argument("--bs", type=int, default=4)
+    parser.add_argument("--epoch", type=int, default=10)
     parser.add_argument("--lr_init", type=float, default=0.03)
     parser.add_argument("--lr_decay", type=str, default=5e-4)
     parser.add_argument("--opt", type=str, default='sgd')
@@ -77,7 +77,7 @@ if __name__ == "__main__":
     #   classes_path    指向model_data下的txt，与自己训练的数据集相关
     #                   训练前一定要修改classes_path，使其对应自己的数据集
     # ---------------------------------------------------------------------#
-    classes_path = 'model_data/waterscenes_benchmark.txt'
+    classes_path = '/data/waterscenes/all/classes.txt'
     model_path = ''
 
     # ------------------------------------------------------#
@@ -141,7 +141,7 @@ if __name__ == "__main__":
     # ------------------------------------------------------------------#
     Init_Epoch = 0
     Freeze_Epoch = 0
-    Freeze_batch_size = 32
+    Freeze_batch_size = 4
     # ------------------------------------------------------------------#
     #   解冻阶段训练参数
     #   此时模型的主干不被冻结了，特征提取网络会发生改变
@@ -213,28 +213,29 @@ if __name__ == "__main__":
     # ----------------------------------------------------#
     # 雷达feature map路径
     # ----------------------------------------------------#
-    radar_file_path = "E:/Big_Datasets/water_surface/benchmark_new/WaterScenes_new/radar/VOCradar320"
+    radar_file_path = "/data/waterscenes/all/radar_320"
 
     # ----------------------------------------------------#
     #   获得目标检测图片路径和标签
     # ----------------------------------------------------#
-    train_annotation_path = '2007_train.txt'
-    val_annotation_path = '2007_val.txt'
+    train_annotation_path = '/data/waterscenes/Achelous_format/train_list.txt'
+    val_annotation_path = '/data/waterscenes/Achelous_format/val_list.txt'
+    test_annotation_path = '/data/waterscenes/Achelous_format/test_list.txt'
 
     # ----------------------------------------------------#
     #   jpg图像路径
     # ----------------------------------------------------#
-    jpg_path = "E:/Big_Datasets/water_surface/benchmark_new/WaterScenes_new/images/images"
+    jpg_path = '/data/waterscenes/all/image'
 
     # ------------------------------------------------------------------#
     # 语义分割数据集路径
     # ------------------------------------------------------------------#
-    se_seg_path = "E:/Big_Datasets/water_surface/benchmark_new/WaterScenes_new/semantic/SegmentationClass/SegmentationClass"
+    se_seg_path = '/data/waterscenes/all/semantic/SegmentationClass'
 
     # ------------------------------------------------------------------#
     # 水岸线分割数据集路径
     # ------------------------------------------------------------------#
-    wl_seg_path = "E:/Big_Datasets/water_surface/benchmark_new/WaterScenes_new/waterline/SegmentationClassPNG/SegmentationClassPNG"
+    wl_seg_path = '/data/waterscenes/all/waterline/SegmentationClass'
 
     # ------------------------------------------------------------------#
     # 是否需要训练毫米波雷达点云分割
@@ -250,7 +251,7 @@ if __name__ == "__main__":
     # ------------------------------------------------------------------#
     # 毫米波雷达点云分割路径
     # ------------------------------------------------------------------#
-    radar_pc_seg_path = "E:/Big_Datasets/water_surface/benchmark_new/WaterScenes_new/radar/radar_0220/radar"
+    radar_pc_seg_path = '/data/waterscenes/all/radar'
 
     # ------------------------------------------------------------------#
     # 毫米波雷达点云分割属性, 其中label表示雷达目标的语义标签
