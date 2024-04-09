@@ -123,7 +123,7 @@ mIoU-pc: mIoU of point clouds
 ## Implementation
 
 ### Prepare environments
-> git clone  https://github.com/GuanRunwei/Achelous.git \
+> git clone  https://github.com/yaoshanliang/Achelous.git \
 > conda create -n achelous python=3.7 \
 > conda activate achelous \
 > pip install -r requirements.txt
